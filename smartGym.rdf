@@ -1,0 +1,2205 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/"
+     xml:base="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:untitled-ontology-24="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24">
+        <rdfs:comment>In this ontology, we will present a context-aware scenario where a gym-goer’s next task is defined based on their performance and vital signs during the assigned task. This will help determine when the gym-goer can be considered a goalReacher.
+
+RULES
+
+PWLowCalBurn:
+Identifies gym-goers who have burned a low amount of calories.
+
+PWHighHR:
+Identifies gym-goers with a high heart rate.
+
+PWCompletedTask:
+Identifies gym-goers who have completed the assigned task.
+
+LowEnergyPerson:
+Identifies gym-goers who have burned a high number of calories, resulting in low energy levels.
+
+Level_Upper:
+Identifies gym-goers who:
+     Completed the task.
+     Do not have a high heart rate.
+     Did not burn an excessive amount of calories,so their energy level is good.
+
+Level_Staller:
+Identifies gym-goers who:
+     Did not complete the task.
+     Have a high heart rate.
+
+GoalReacher:
+Identifies gym-goers who demonstrated good performance and completed all assigned tasks.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Performance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasCal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasCal">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calories"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasToken -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasToken">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasHeartRate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasHeartRate">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Cafeteria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Cafeteria">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calories -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calories">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#GoalReacher -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#GoalReacher">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level-Staller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level-Staller">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level-Upper -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level-Upper">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWCompletedTask -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWCompletedTask">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWHighHR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWHighHR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWLowCalBurn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWLowCalBurn">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Performance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Performance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.Sensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WaitingRoom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WaitingRoom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#lowEnegyPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#lowEnegyPerson">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#AdvancedLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#AdvancedLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#BasicLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#BasicLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Cafeteria1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Cafeteria1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Cafeteria"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+        <untitled-ontology-24:hasCal rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#High"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+        <untitled-ontology-24:hasCal rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Medium"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+        <untitled-ontology-24:hasCal rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Low"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+        <untitled-ontology-24:PerformLev rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+        <untitled-ontology-24:hasLocation rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea1"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW1"/>
+        <untitled-ontology-24:usesDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+        <untitled-ontology-24:hasLocation rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea1"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW2"/>
+        <untitled-ontology-24:usesDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress2"/>
+        <untitled-ontology-24:usesDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike2"/>
+        <untitled-ontology-24:usesDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+        <untitled-ontology-24:hasLocation rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea1"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW3"/>
+        <untitled-ontology-24:usesDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+        <untitled-ontology-24:hasHeartRate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">160</untitled-ontology-24:hasHeartRate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+        <untitled-ontology-24:hasHeartRate rdf:datatype="http://www.w3.org/2001/XMLSchema#int">80</untitled-ontology-24:hasHeartRate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+        <untitled-ontology-24:hasHeartRate rdf:datatype="http://www.w3.org/2001/XMLSchema#int">70</untitled-ontology-24:hasHeartRate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#High -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#High">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calories"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#IntermediateLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#IntermediateLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S2"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Low -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Low">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calories"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Medium -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Medium">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calories"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S1"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S1"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID1"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S2"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S2"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID2"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S3"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S3"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID3"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer"/>
+        <untitled-ontology-24:hasToken rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill"/>
+        <untitled-ontology-24:hasSensor rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WaitingRoom1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WaitingRoom1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WaitingRoom"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera1"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Camera2"/>
+        <untitled-ontology-24:hasTechnology rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea"/>
+        <untitled-ontology-24:hasDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress1"/>
+        <untitled-ontology-24:hasDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress2"/>
+        <untitled-ontology-24:hasDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike1"/>
+        <untitled-ontology-24:hasDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike2"/>
+        <untitled-ontology-24:hasDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill1"/>
+        <untitled-ontology-24:hasDevice rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Person"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Sensor"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Technology"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Cafeteria1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Calorie.S3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Em.S7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRate.S3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#High"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#IntermediateLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#LegPress2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Low"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Medium"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#RFID3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SW3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SpinBike2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#TV"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Temp.S3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Token1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Trainer1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Treadmill3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#VendingMachine1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WaitingRoom1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#WorkoutArea1"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl:var#g">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#sw">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#hr">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/hr">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e3">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Level-Staller</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#NotComplete"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology"/>
+                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                <rdf:first>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                                                                                        <swrl:arguments>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                <rdf:first rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/hr"/>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</rdf:first>
+                                                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </swrl:arguments>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                        <rdf:first>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasHeartRate"/>
+                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s"/>
+                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/hr"/>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                <rdf:first>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasLocation"/>
+                                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:first>
+                                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level-Staller"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>PWcompletedTask</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d"/>
+                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasLocation"/>
+                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWCompletedTask"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>GoalReacher</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasLocation"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Place"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e1"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e1"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev"/>
+                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e1"/>
+                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice"/>
+                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2"/>
+                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e2"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e2"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                <rdf:first>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev"/>
+                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e2"/>
+                                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                        <rdf:first>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasDevice"/>
+                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/l"/>
+                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3"/>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                <rdf:first>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SportDevice"/>
+                                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3"/>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                        <rdf:first>
+                                                                                                                                            <rdf:Description>
+                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3"/>
+                                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e3"/>
+                                                                                                                                            </rdf:Description>
+                                                                                                                                        </rdf:first>
+                                                                                                                                        <rdf:rest>
+                                                                                                                                            <rdf:Description>
+                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                <rdf:first>
+                                                                                                                                                    <rdf:Description>
+                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#EmbeddedSensor"/>
+                                                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e3"/>
+                                                                                                                                                    </rdf:Description>
+                                                                                                                                                </rdf:first>
+                                                                                                                                                <rdf:rest>
+                                                                                                                                                    <rdf:Description>
+                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                        <rdf:first>
+                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PerformLev"/>
+                                                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/e3"/>
+                                                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Complete"/>
+                                                                                                                                                            </rdf:Description>
+                                                                                                                                                        </rdf:first>
+                                                                                                                                                        <rdf:rest>
+                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                <rdf:first>
+                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice"/>
+                                                                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1"/>
+                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                </rdf:first>
+                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice"/>
+                                                                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2"/>
+                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                <rdf:first>
+                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#usesDevice"/>
+                                                                                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                                                                                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3"/>
+                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                </rdf:first>
+                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                                                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1"/>
+                                                                                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2"/>
+                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                <rdf:first>
+                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                                                                                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d2"/>
+                                                                                                                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3"/>
+                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                </rdf:first>
+                                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                                                                                                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d1"/>
+                                                                                                                                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/d3"/>
+                                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                </rdf:rest>
+                                                                                                                                                            </rdf:Description>
+                                                                                                                                                        </rdf:rest>
+                                                                                                                                                    </rdf:Description>
+                                                                                                                                                </rdf:rest>
+                                                                                                                                            </rdf:Description>
+                                                                                                                                        </rdf:rest>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#GoalReacher"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>to check if the person works in advanced level or not</rdfs:comment>
+        <rdfs:label>PWHighHR</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/hr"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasHeartRate"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/s"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/hr"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/sw"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWHighHR"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24/g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>LowEnergyPerson</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#sw"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#c"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasCal"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#High"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#lowEnegyPerson"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>PWHighCal</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#sw"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasCal"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Low"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Gym-goer"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWLowCalBurn"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Level-Upper</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#PWCompletedTask"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasTechnology"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#sw"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#s1"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="urn:swrl:var#hr"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#HeartRateSensor"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#s1"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasHeartRate"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#s1"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#hr"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#SmartWatch"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasSensor"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#sw"/>
+                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#s2"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#CalorieSensor"/>
+                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#s2"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#hasCal"/>
+                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#s2"/>
+                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Medium"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/hoda/ontologies/2024/11/untitled-ontology-24#Level-Upper"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
