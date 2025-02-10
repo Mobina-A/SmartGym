@@ -39,4 +39,8 @@ Three Bayesian networks model the decision-making process in a smart gym using p
 ### **Usage**  
 1. Open **Netica** and load the `.neta` files.  
 2. Input real-time data (crowd status, workout performance, health data).  
-3. Run inference to receive personalized recommendations.  
+3. Run inference to receive personalized recommendations.
+
+## Team Members
+- Hoda Mostafanezhad
+- Seyed Emad Razavi " https://github.com/Emaaaad "
